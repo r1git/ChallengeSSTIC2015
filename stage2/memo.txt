@@ -1,0 +1,6 @@
+Cipher: AES-OFB
+IV: 0x5353544943323031352d537461676532
+Key: Damn... I ALWAYS forget it. Fortunately I found a way to hide it into my favorite game !
+
+SHA256: 91d0a6f55cce427132fc638b6beecf105c2cb0c817a4b7846ddb04e3132ea945 - encrypted
+SHA256: 845f8b000f70597cf55720350454f6f3af3420d8d038bb14ce74d6f4ac5b9187 - decrypted

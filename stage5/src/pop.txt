@@ -1,0 +1,32 @@
+j n
+ldlp n
+pfix n
+ldnl n
+ldc n
+ldnlp n
+nfix n
+ldl n
+adc n
+fcall n
+cj n
+ajw n
+eqc n
+stl n
+stnl n
+opr n 
+jump
+load local pointer
+prefix
+load non-local
+load constant
+load non-local pointer
+negative prefix
+load local
+add constant
+function call
+conditional jump
+adjust work space
+equals constant
+store local
+store non-local
+operate

@@ -1,0 +1,6 @@
+Cipher: Serpent-1-CBC-With-CTS
+IV: 0x5353544943323031352d537461676533
+Key: Well, definitely can't remember it... So this time I securely stored it with Paint.
+
+SHA256: 6b39ac2220e703a48b3de1e8365d9075297c0750e9e4302fc3492f98bdf3a0b0 - encrypted
+SHA256: 7beabe40888fbbf3f8ff8f4ee826bb371c596dd0cebe0796d2dae9f9868dd2d2 - decrypted

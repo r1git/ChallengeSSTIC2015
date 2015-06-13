@@ -1,0 +1,34 @@
+diff --git a/src/CryptoPlus/Cipher/blockcipher.py b/src/CryptoPlus/Cipher/blockcipher.py
+index 78d2669..3cd952d 100644
+--- a/src/CryptoPlus/Cipher/blockcipher.py
++++ b/src/CryptoPlus/Cipher/blockcipher.py
+@@ -298,23 +298,20 @@ class CBC:
+             self.cache += data
+             if len(self.cache) < self.blocksize:
+                 return ''
+-	    needed = len(self.cache)%self.blocksize
++	    needed = self.blocksize - (len(self.cache)%self.blocksize)
+ 	    myend = (len(self.cache)/self.blocksize * self.blocksize) - self.blocksize 
+ 	    print "Size cache:", len(self.cache)
+ 	    print "Needed:", needed
+ 	    print "myend:", myend
+-            for i in xrange(0, myend+1, self.blocksize):
+-                plaintext = util.xorstring(self.IV,self.codebook.decrypt(self.cache[i:i + self.blocksize]))
+-		if(i<myend):
+-                	self.IV = self.cache[i:i + self.blocksize]
+-                	decrypted_blocks+=plaintext
+-	    self.cache = self.cache + plaintext[-needed:]
++	    decr = self.codebook.decrypt(self.cache[myend:myend+self.blocksize])
++    	    self.cache = self.cache + decr[-needed:]
+ 	    self.cache = self.cache[:myend] + self.cache[myend+self.blocksize:] + self.cache[myend:myend+self.blocksize]
+-	    for i in xrange(myend, myend+self.blocksize+1, self.blocksize):
+-		print "i:", i
++	    print "Cache padded:", len(self.cache)
++            for i in xrange(0, myend+self.blocksize+1, self.blocksize):
+                 plaintext = util.xorstring(self.IV,self.codebook.decrypt(self.cache[i:i + self.blocksize]))
+ 		self.IV = self.cache[i:i + self.blocksize]
+ 		decrypted_blocks+=plaintext
++	    print "Last i:",i
+ 
+             self.cache = self.cache[i+self.blocksize:]
+             return decrypted_blocks
